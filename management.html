@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management - SR Plumbing & Electrical Service</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo-container">
+                    <img src="assets/logo.jpg" alt="SR Plumbing & Electrical Service Logo" class="logo">
+                    <span class="company-name">SR Plumbing & Electrical Service</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="billing.html">Billing</a></li>
+                    <li><a href="payment.html">Payment</a></li>
+                    <li><a href="reports.html">Reports</a></li>
+                    <li><a href="management.html" class="active">Management</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Management Dashboard</h1>
+
+            <!-- Security Settings -->
+            <section class="management-section">
+                <h2>Security Settings</h2>
+                <div class="security-settings">
+                    <h3>Payment Details Password</h3>
+                    <p class="security-info">Change the password required to view QR code and UPI ID on the Payment page.</p>
+                    <form id="password-change-form" class="security-form">
+                        <div class="form-group">
+                            <label for="current-password">Current Password</label>
+                            <input type="password" id="current-password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="new-password">New Password</label>
+                            <input type="password" id="new-password" required minlength="4">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">Confirm New Password</label>
+                            <input type="password" id="confirm-password" required minlength="4">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Change Password</button>
+                    </form>
+                    <div class="password-info">
+                        <p><strong>Default Password:</strong> admin123</p>
+                        <p class="info-note">⚠️ Change the default password for better security</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CARD Operations Section -->
+            <section class="management-section">
+                <h2>CARD Operations</h2>
+                <div class="card-operations">
+                    <div class="card-operation-card">
+                        <h3>Record Card Payment</h3>
+                        <form id="card-payment-form" class="card-form">
+                            <div class="form-group">
+                                <label for="card-amount">Amount (₹)</label>
+                                <input type="number" id="card-amount" step="0.01" min="0" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="card-date">Date</label>
+                                <input type="date" id="card-date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="card-status">Status</label>
+                                <select id="card-status" required>
+                                    <option value="completed">Completed</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="failed">Failed</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="card-notes">Notes (Optional)</label>
+                                <textarea id="card-notes" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Record Payment</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Invoice Management -->
+            <section class="management-section">
+                <h2>Invoice Management</h2>
+                <div class="invoice-filters">
+                    <input type="date" id="filter-date" onchange="filterInvoices()">
+                    <button class="btn btn-secondary" onclick="clearFilter()">Show All</button>
+                </div>
+                <div id="invoices-list" class="invoices-list">
+                    <!-- Invoices will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Item Catalog Management -->
+            <section class="management-section">
+                <h2>Item Catalog Management</h2>
+                <div class="catalog-actions">
+                    <button class="btn btn-primary" onclick="exportItems()">Export Items</button>
+                    <button class="btn btn-secondary" onclick="importItems()">Import Items</button>
+                    <input type="file" id="import-file" accept=".json" style="display: none;" onchange="handleFileImport(event)">
+                </div>
+                <div id="catalog-items" class="catalog-items">
+                    <!-- Catalog items will be loaded here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SR Plumbing & Electrical Service. All rights reserved.</p>
+            <p class="slogan">Best work in affordable price</p>
+        </div>
+    </footer>
+
+    <script src="js/storage.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/management.js"></script>
+</body>
+</html>
+

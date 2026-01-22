@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Reports - SR Plumbing & Electrical Service</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo-container">
+                    <img src="assets/logo.jpg" alt="SR Plumbing & Electrical Service Logo" class="logo">
+                    <span class="company-name">SR Plumbing & Electrical Service</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="billing.html">Billing</a></li>
+                    <li><a href="payment.html">Payment</a></li>
+                    <li><a href="reports.html" class="active">Reports</a></li>
+                    <li><a href="management.html">Management</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Daily Reports</h1>
+
+            <section class="reports-section">
+                <div class="report-filters">
+                    <div class="filter-group">
+                        <label for="report-date">Select Date:</label>
+                        <input type="date" id="report-date" onchange="loadDailyReport()">
+                        <button class="btn btn-secondary" onclick="setToday()">Today</button>
+                        <button class="btn btn-secondary" onclick="setYesterday()">Yesterday</button>
+                    </div>
+                    <div class="view-options">
+                        <button class="btn btn-primary" onclick="exportReport()">Export Report</button>
+                    </div>
+                </div>
+
+                <div id="daily-summary" class="daily-summary">
+                    <!-- Daily summary will be loaded here -->
+                </div>
+
+                <div id="report-details" class="report-details">
+                    <!-- Report details will be loaded here -->
+                </div>
+            </section>
+
+            <section class="reports-section">
+                <h2>Monthly Summary</h2>
+                <div class="monthly-filters">
+                    <label for="report-month">Select Month:</label>
+                    <input type="month" id="report-month" onchange="loadMonthlyReport()">
+                </div>
+                <div id="monthly-summary" class="monthly-summary">
+                    <!-- Monthly summary will be loaded here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SR Plumbing & Electrical Service. All rights reserved.</p>
+            <p class="slogan">Best work in affordable price</p>
+        </div>
+    </footer>
+
+    <script src="js/storage.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/reports.js"></script>
+</body>
+</html>
+

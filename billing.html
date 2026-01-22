@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing - SR Plumbing & Electrical Service</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo-container">
+                    <img src="assets/logo.jpg" alt="SR Plumbing & Electrical Service Logo" class="logo">
+                    <span class="company-name">SR Plumbing & Electrical Service</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="billing.html" class="active">Billing</a></li>
+                    <li><a href="payment.html">Payment</a></li>
+                    <li><a href="reports.html">Reports</a></li>
+                    <li><a href="management.html">Management</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Billing & Invoice</h1>
+
+            <!-- Add Item Form -->
+            <section class="billing-section">
+                <h2>Add Item to Catalog</h2>
+                <form id="add-item-form" class="item-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="item-photo">Item Photo</label>
+                            <input type="file" id="item-photo" name="item-photo" accept="image/*">
+                        </div>
+                        <div class="form-group">
+                            <label for="item-name">Item Name *</label>
+                            <input type="text" id="item-name" name="item-name" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="size-inch">Size (Inch)</label>
+                            <input type="text" id="size-inch" name="size-inch" placeholder="e.g., 2, 4, 6">
+                        </div>
+                        <div class="form-group">
+                            <label for="size-mm">Size (mm)</label>
+                            <input type="text" id="size-mm" name="size-mm" placeholder="e.g., 50, 100, 150">
+                        </div>
+                        <div class="form-group">
+                            <label for="item-code">Item Code</label>
+                            <input type="text" id="item-code" name="item-code">
+                        </div>
+                        <div class="form-group">
+                            <label for="rate">Rate (₹) *</label>
+                            <input type="number" id="rate" name="rate" step="0.01" min="0" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Item</button>
+                </form>
+            </section>
+
+            <!-- Items Catalog -->
+            <section class="billing-section">
+                <h2>Items Catalog</h2>
+                <div id="items-container" class="items-grid">
+                    <!-- Items will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Shopping Cart -->
+            <section class="billing-section">
+                <div class="cart-header">
+                    <h2>Shopping Cart</h2>
+                    <button id="clear-cart" class="btn btn-danger">Clear Cart</button>
+                </div>
+                <div id="cart-items" class="cart-items">
+                    <!-- Cart items will be loaded here -->
+                </div>
+                <div id="cart-summary" class="cart-summary">
+                    <!-- Cart summary will be loaded here -->
+                </div>
+                <button id="generate-invoice" class="btn btn-primary btn-large">Generate Invoice</button>
+            </section>
+
+            <!-- Invoice Display -->
+            <section class="billing-section" id="invoice-section">
+                <h2>Invoice</h2>
+                <div class="invoice-date-input">
+                    <label for="invoice-date">Invoice Date:</label>
+                    <input type="date" id="invoice-date" name="invoice-date">
+                </div>
+                <div id="invoice-container">
+                    <p class="empty-message">Generate an invoice to see it here.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SR Plumbing & Electrical Service. All rights reserved.</p>
+            <p class="slogan">Best work in affordable price</p>
+        </div>
+    </footer>
+
+    <script src="js/storage.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/billing.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - SR Plumbing & Electrical Service</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo-container">
+                    <img src="assets/logo.jpg" alt="SR Plumbing & Electrical Service Logo" class="logo">
+                    <span class="company-name">SR Plumbing & Electrical Service</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="billing.html">Billing</a></li>
+                    <li><a href="payment.html" class="active">Payment</a></li>
+                    <li><a href="reports.html">Reports</a></li>
+                    <li><a href="management.html">Management</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Payment</h1>
+
+            <section class="payment-section">
+                <div class="payment-methods">
+                    <h2>Choose Payment Method</h2>
+                    <div class="payment-options">
+                        <button class="payment-method-btn active" data-method="upi" onclick="selectPaymentMethod('upi')">
+                            <span class="payment-icon">📱</span>
+                            <span>UPI Payment</span>
+                        </button>
+                        <button class="payment-method-btn" data-method="card" onclick="selectPaymentMethod('card')">
+                            <span class="payment-icon">💳</span>
+                            <span>Card Payment</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- UPI Payment Section -->
+                <div id="upi-payment" class="payment-details active">
+                    <h3>Scan QR Code to Pay</h3>
+                    
+                    <!-- Security Lock -->
+                    <div id="payment-security" class="payment-security">
+                        <div class="security-lock">
+                            <div class="lock-icon">🔒</div>
+                            <p><strong>Payment Details Protected</strong></p>
+                            <p>Enter password to view QR code and UPI ID</p>
+                            <div class="password-input-group">
+                                <input type="password" id="payment-password" placeholder="Enter password" class="password-input">
+                                <button class="btn btn-primary" onclick="unlockPaymentDetails()">Unlock</button>
+                            </div>
+                            <p class="security-note">Only authorized personnel can access payment details</p>
+                        </div>
+                    </div>
+
+                    <!-- Hidden Payment Details -->
+                    <div id="payment-details-content" class="payment-details-content" style="display: none;">
+                        <div class="qr-code-container">
+                            <img src="assets/qr-code.jpg" alt="Payment QR Code" class="qr-code">
+                        </div>
+                        <div class="upi-details">
+                            <p><strong>UPI ID:</strong> <span id="upi-id-display">shanmughanraji775@okaxis</span></p>
+                            <button class="btn btn-secondary" onclick="copyUPI()">Copy UPI ID</button>
+                            <button class="btn btn-danger btn-small" onclick="lockPaymentDetails()" style="margin-left: 10px;">🔒 Lock</button>
+                        </div>
+                    </div>
+                    <div class="payment-amount-section">
+                        <label for="payment-amount">Enter Amount (₹):</label>
+                        <input type="number" id="payment-amount" step="0.01" min="0" placeholder="0.00">
+                    </div>
+                    <div class="payment-status-section">
+                        <label for="payment-status">Payment Status:</label>
+                        <select id="payment-status">
+                            <option value="pending">Pending</option>
+                            <option value="completed">Completed</option>
+                            <option value="failed">Failed</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary btn-large" onclick="processPayment('upi')">Confirm Payment</button>
+                </div>
+
+                <!-- Card Payment Section -->
+                <div id="card-payment" class="payment-details">
+                    <h3>Card Payment</h3>
+                    <p class="info-message">For card payments, please visit the Management section or contact us directly.</p>
+                    <div class="payment-amount-section">
+                        <label for="card-payment-amount">Enter Amount (₹):</label>
+                        <input type="number" id="card-payment-amount" step="0.01" min="0" placeholder="0.00">
+                    </div>
+                    <div class="payment-status-section">
+                        <label for="card-payment-status">Payment Status:</label>
+                        <select id="card-payment-status">
+                            <option value="pending">Pending</option>
+                            <option value="completed">Completed</option>
+                            <option value="failed">Failed</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary btn-large" onclick="processPayment('card')">Record Card Payment</button>
+                </div>
+            </section>
+
+            <section class="recent-payments">
+                <h2>Recent Payments</h2>
+                <div id="payments-list" class="payments-list">
+                    <!-- Payments will be loaded here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SR Plumbing & Electrical Service. All rights reserved.</p>
+            <p class="slogan">Best work in affordable price</p>
+        </div>
+    </footer>
+
+    <script src="js/storage.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/payment.js"></script>
+</body>
+</html>
+
